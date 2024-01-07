@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.Registry.User.service.entities.User;
 
 @Repository
-public interface UserReposiotory extends JpaRepository<User,String>{
+public interface UserReposiotory extends JpaRepository<User,Integer>{
 
 	
 }
