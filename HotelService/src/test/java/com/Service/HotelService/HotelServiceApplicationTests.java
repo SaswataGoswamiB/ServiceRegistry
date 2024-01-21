@@ -1,10 +1,10 @@
-package com.Registry.User.service;
+package com.Service.HotelService;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-
-class UserServiceApplicationTests {
+@SpringBootTest
+class HotelServiceApplicationTests {
 
 	@Test
 	void contextLoads() {
