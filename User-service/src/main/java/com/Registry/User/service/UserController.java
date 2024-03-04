@@ -18,6 +18,7 @@ import com.Registry.User.service.entities.User;
 import com.Registry.User.service.service.UserService;
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
 import io.github.resilience4j.retry.annotation.Retry;
 import lombok.extern.slf4j.Slf4j;
 
@@ -42,6 +43,7 @@ public class UserController {
 	//@CircuitBreaker(name = "RatingHotelBreaker",fallbackMethod = "ratingHotelFallBack")
 	@Retry(name = "ratinghotelRetry",fallbackMethod ="ratingHotelRetry")
 	@CircuitBreaker(name = "RatingHotelBreaker",fallbackMethod = "ratingHotelFallBack")
+	@RateLimiter(name="RateLimiterUser",fallbackMethod = "rateLimitUser")
 	public ResponseEntity<User> getSingleUser(@PathVariable("userId") Integer userId) {
 		User user = userService.getUser(userId);
 		return ResponseEntity.ok(user);
@@ -74,6 +76,19 @@ public class UserController {
 				name("This User is dummy from Retry").
 				userId(123).
 				about("This is the retry from the Releience4j").
+				build();
+		return new ResponseEntity<>(user,HttpStatus.OK);
+	}
+	
+	
+	public ResponseEntity<User> rateLimitUser(Integer userId,Exception ex)
+	{
+		logger.info("Exceeded the Rate Specified ");
+		User user=User.builder().
+				email("saswata@Retry.com").
+				name("This User is dummy from Rate Limiter").
+				userId(123).
+				about("This is the rate Limiter from the Releience4j").
 				build();
 		return new ResponseEntity<>(user,HttpStatus.OK);
 	}
