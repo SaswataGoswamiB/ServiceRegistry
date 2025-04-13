@@ -9,7 +9,7 @@ import com.Registry.User.service.PayLoad.ApiResponse;
 
 @RestControllerAdvice
 public class GlobalExcpetionHandler {
-	
+
 	@ExceptionHandler(ResourceNotFoundException.class)
 	public ResponseEntity<ApiResponse>handleResourcenotFound(ResourceNotFoundException ex)
 	{

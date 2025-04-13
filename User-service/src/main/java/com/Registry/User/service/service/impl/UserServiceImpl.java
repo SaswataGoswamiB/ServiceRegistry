@@ -59,9 +59,9 @@ public class UserServiceImpl implements UserService {
 		//http://localhost:8082/ratings/users/211
 		//You can use Rest Template or you can Use Feign Client for calling this API.
 		//restTemplate.getForObject is used when there are Chances for Multiple values.
-		
-		
-	
+		//nmArrayList forObject = restTemplate.getForObject("http://localhost:8082/ratings/users/211", ArrayList.class);
+
+
 		List<Rating>objList=ratingService.getRatings(id.toString());
 		
 		//log.info("The Array Value is : "+objArray);

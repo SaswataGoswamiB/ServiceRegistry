@@ -1,20 +1,55 @@
+#spring:
+#  cloud:
+#    gateway:
+#      routes:
+#        - id: USER-SERVICE
+#          uri: lb://USER-SERVICE
+#          predicates:
+#            - Path=/users/**
+#
+#        - id: HOTEL-SERVICE
+#          uri: lb://HOTEL-SERVICE
+#          predicates:
+#            - Path=/hotels/**
+#
+#        - id: RATING-SERVICE
+#          uri: lb://RATING-SERVICE
+#          predicates:
+#            - Path=/ratings/**
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 spring:
   cloud:
     gateway:
       routes:
-        - id: USER-SERVICE
-          uri: lb://USER-SERVICE
-          predicates:
-            - Path=/users/**
-
-        - id: HOTEL-SERVICE
+        - id: HOTELSERVICE
           uri: lb://HOTEL-SERVICE
           predicates:
-            - Path=/hotels/**
-
-        - id: RATING-SERVICE
-          uri: lb://RATING-SERVICE
-          predicates:
-            - Path=/ratings/**
-
+            -Path = ""
             

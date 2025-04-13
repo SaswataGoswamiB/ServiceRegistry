@@ -67,17 +67,17 @@ public class UserController {
 	// Implemeting Retry from Resileine4j.
 	
 	int countRetry=1;
-	public ResponseEntity<User> ratingHotelRetry(Integer userId,Exception ex)
-	{
-		logger.info("Retry  is executed because Service is Slow or Network Issue",countRetry);
+
+	public ResponseEntity<User> ratingHotelRetry(Integer userId, Exception ex) {
+		logger.info("Retry  is executed because Service is Slow or Network Issue", countRetry);
 		countRetry++;
-		User user=User.builder().
+		User user = User.builder().
 				email("saswata@Retry.com").
 				name("This User is dummy from Retry").
 				userId(123).
 				about("This is the retry from the Releience4j").
 				build();
-		return new ResponseEntity<>(user,HttpStatus.OK);
+		return new ResponseEntity<>(user, HttpStatus.OK);
 	}
 	
 	
